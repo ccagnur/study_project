@@ -15,3 +15,5 @@ summary(reg1)
 
 anova(reg1)
 coef(reg1)
+resid(reg1)
+hist(resid(reg1))
