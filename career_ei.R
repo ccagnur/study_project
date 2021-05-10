@@ -1,0 +1,38 @@
+install.packages("rio")
+install.packages("dplyr")
+install.packages("GGally")
+install.packages("csvy")
+install.packages("ggplot2")
+install.packages("psych")
+install.packages("tidyr")
+install.packages("foreign")
+install.packages("moments")
+install.packages("stargazer")
+install.packages("ggpubr")
+install.packages("tidyverse")
+installed.packages("rstatix")
+library(ggpubr)
+library(tidyverse)
+library(rstatix)
+library(stargazer)
+library(moments)
+library(foreign)
+library(rio)
+library(GGally)
+library(dplyr)
+library(ggplot2)
+library(psych)
+library(tidyr)
+
+my_data <- import("/Users/cagnur/Desktop/my_data.csv")
+
+my_data %>% shapiro_test(interpersonal, intrapersonal, interpersonal, adaptability, stress_management,
+                         general_mood, career_adapt, career_opt, career_info)
+
+
+df <- data.frame(my_data)
+cols <- c('intrapersonal', 'interpersonal', 'adaptability', 'stress_management',
+          'general_mood', 'career_adapt', 'career_opt', 'career_info')
+stargazer(
+  df[, cols], type = "text", 
+  summary.stat = c("min", "p25", "median", "p75", "max", "median", "sd"))
