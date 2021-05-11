@@ -26,10 +26,6 @@ library(tidyr)
 
 my_data <- import("/Users/cagnur/Desktop/my_data.csv")
 
-my_data %>% shapiro_test(interpersonal, intrapersonal, interpersonal, adaptability, stress_management,
-                         general_mood, career_adapt, career_opt, career_info)
-
-
 df <- data.frame(my_data)
 cols <- c('intrapersonal', 'interpersonal', 'adaptability', 'stress_management',
           'general_mood', 'career_adapt', 'career_opt', 'career_info')
